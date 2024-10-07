@@ -1,0 +1,290 @@
+ :root {
+     --primary-color: #a73324;
+     --dark-color: #333;
+     --light-color: #f5f5f5;
+     --primary-text-color: #333;
+     --light-text-color: #fff;
+ }
+
+ body {
+     font-family: Arial, sans-serif;
+     background-color: var(--light-color);
+     color: var(--primary-text-color);
+     margin: 0;
+     padding: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
+     height: 100vh;
+     transition: background-color 0.3s, color 0.3s;
+ }
+
+ body.dark-mode {
+     background-color: var(--dark-color);
+     color: var(--light-text-color);
+ }
+
+ header {
+     width: 100%;
+     background-color: var(--primary-color);
+     color: var(--light-text-color);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 10px;
+ }
+
+ .logo {
+     display: flex;
+     align-items: center;
+     color: #ffcc00;
+ }
+
+ .theme-toggle,
+ .settings-toggle {
+     cursor: pointer;
+     background: none;
+     border: none;
+     color: var(--light-text-color);
+     font-size: 16px;
+ }
+
+ .container {
+     width: 90%;
+     max-width: 350px;
+     background-color: var(--light-color);
+     padding: 20px;
+     margin-top: 5%;
+     /* padding-top: 20%; */
+     border-radius: 10px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     display: none;
+     opacity: 0;
+     transform: scale(0.8);
+     transition: opacity 0.5s, transform 0.5s;
+ }
+
+@media (min-width=500px) {
+    body {
+        background-color: red;
+    }
+}
+
+
+ body.dark-mode .container {
+     background-color: #444;
+     /* لون الخلفية للوضع الليلي      back-g-c=black*/
+     color: var(--light-text-color);
+ }
+
+ .container.active {
+     display: block;
+     opacity: 1;
+     transform: scale(1);
+ }
+
+ h2 {
+     text-align: center;
+     color: var(--primary-color);
+ }
+
+a {
+    text-decoration: none;
+    color: #a73324;
+
+}
+
+ form {
+     display: flex;
+     flex-direction: column;
+     /* padding: 10px; */
+    /* padding-top: 20%; */
+ }
+
+ input {
+     width: 90%;
+     padding: 10px;
+     margin-top: 5px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     transition: border-color 0.3s;
+ }
+
+ input:focus {
+     border-color: var(--primary-color);
+ }
+
+ button {
+     background-color: var(--primary-color);
+     color: var(--light-text-color);
+     border: none;
+     padding: 10px;
+     cursor: pointer;
+     border-radius: 5px;
+     margin-top: 15px;
+     transition: background-color 0.3s;
+ }
+
+ button:hover {
+     background-color: #c44c3a;
+ }
+
+ .notification {
+     display: none;
+     background-color: #4caf50;
+     color: var(--light-text-color);
+     padding: 10px;
+     border-radius: 5px;
+     margin-top: 10px;
+     text-align: center;
+     transition: opacity 0.5s;
+ }
+
+ .error {
+     background-color: #f44336;
+ }
+
+ .toggle-password {
+     position: absolute;
+     top: 20%;
+     right: 20px;
+     transform: translateY(-50%);
+     background: none;
+     border: none;
+     cursor: pointer;
+     color: var(--primary-color);
+ }
+
+ .settings-menu {
+     display: none;
+     position: absolute;
+     top: 50px;
+     right: 20px;
+     background-color: #fff;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     padding: 10px;
+     z-index: 1000;
+ }
+
+ .settings-menu a {
+     display: flex;
+     align-items: center;
+     padding: 5px 10px;
+     color: #333;
+     text-decoration: none;
+     margin-bottom: 5px;
+ }
+
+ .settings-menu a:hover {
+     background-color: #f0f0f0;
+ }
+
+ .color-picker {
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: 10px;
+ }
+
+ .color-option {
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     margin: 5px;
+     cursor: pointer;
+     border: 2px solid transparent;
+     transition: border-color 0.3s;
+ }
+
+ .color-option:hover {
+     border-color: #000;
+ }
+
+
+
+/* ====================== */
+ /* تأثير التحميل == effect loading*/
+ .loading {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     /* background-color: rgba(255, 255, 255, 0.8); */
+     background-color: white;
+     z-index: 999;
+
+ }
+
+ .dot {
+     width: 20px;
+     height: 20px;
+     border-radius: 50%;
+     background-color: var(--primary-color);
+     animation: jump 0.6s infinite alternate;
+     margin: 0 5px;
+ }
+
+#dot1  {
+    background-color: #7f120a;
+    animation: up 0.9s infinite ;
+}
+
+ @keyframes up {
+     0% {
+     transform: translateY(10);
+     }
+
+     25% {
+         transform: translateY(20px);
+     }
+ }
+
+
+
+#dot2 {
+    background-color: #c61e12;
+    animation: up2 0.9s infinite;
+}
+
+@keyframes up2 {
+    25% {
+        transform: translateY(10);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+
+#dot3 {
+    background-color: #c61e12;
+    animation: up3 0.9s infinite;
+}
+
+@keyframes up3 {
+    50% {
+        transform: translateY(10);
+    }
+
+    75% {
+        transform: translateY(20px);
+    }
+}
+
+
+ /* @keyframes jump {
+     0% {
+         transform: translateY(0);
+     }
+
+     100% {
+         transform: translateY(-20px);
+     }
+ } */
